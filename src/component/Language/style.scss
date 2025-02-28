@@ -1,0 +1,82 @@
+.language {
+  position: relative;
+  padding-top: 3.2px;
+  &-wrapper {
+    padding: 10px 8px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 6px;
+    border-radius: 12px;
+    background: var(--mainColor);
+    cursor: pointer;
+  }
+  &-lan {
+    color: var(--whiteColor);
+  }
+  &-icon {
+    width: 20px;
+    height: 20px;
+    color: #ffff;
+  }
+
+  &-iconArrow {
+    width: 16px;
+    height: 16px;
+    color: #ffff;
+  }
+
+  & > span {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  &-bar {
+    display: none;
+    position: absolute;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 85px;
+    right: 0;
+    top: 45px;
+
+    border-radius: 12px;
+    background: var(--mainColor);
+    color: white;
+    z-index: 10;
+    overflow: hidden;
+    &:hover {
+      background: var(--whiteColor);
+      p {
+        color: var(--mainColor);
+      }
+
+      transition: 0.5s;
+    }
+
+    & > p {
+      width: 100%;
+      text-align: center;
+      padding: 5px;
+      color: var(--whiteColor);
+      cursor: pointer;
+    }
+
+    & > p:hover {
+      background-color: var(--mainColor);
+      color: white;
+    }
+  }
+}
