@@ -14,6 +14,7 @@ import LanguageSwitcher from "../../LanguageSwitcher/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { languageChange } from "../../../reduxToolkit/languageSlice";
+import Language from "../../Language/language";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,15 +47,6 @@ const Header = () => {
     };
   }, []);
   const isHomePage = location.pathname === "/"; // Faqat Home sahifasi uchun tekshiruv
-
-  const { i18n } = useTranslation();
-  const dispatch = useDispatch();
-  const currentLanguage = useSelector((state) => state.language.language);
-
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-    dispatch(languageChange(lng));
-  };
 
   return (
     <header
@@ -126,27 +118,7 @@ const Header = () => {
                 </CDropdownItem>
               </CDropdownMenu>
             </CDropdown>
-
-            <CDropdown className="nav-item">
-              <CDropdownToggle className="nav-link">
-                {t("language")}
-                <FaCaretDown />
-              </CDropdownToggle>
-              <CDropdownMenu className="dropdown-menu">
-                <CDropdownItem
-                  onClick={() => changeLanguage("en")}
-                  disabled={currentLanguage === "en"}
-                >
-                  English
-                </CDropdownItem>
-                <CDropdownItem
-                  onClick={() => changeLanguage("ru")}
-                  disabled={currentLanguage === "ru"}
-                >
-                  Русский
-                </CDropdownItem>
-              </CDropdownMenu>
-            </CDropdown>
+            <Language/>
 
             <li className="nav-item">
               <Link className="nav-link" to="/contact">
